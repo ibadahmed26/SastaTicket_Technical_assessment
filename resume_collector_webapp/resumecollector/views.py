@@ -16,9 +16,7 @@ class RegisterUser(APIView):
         serialized.is_valid(raise_exception=True)
         serialized.save()
         return Response(
-            {'success': True,
-             'msg': 'User Signed up'},
-            status=status.HTTP_201_CREATED
+            {"success": True, "msg": "User Signed up"}, status=status.HTTP_201_CREATED
         )
 
 
@@ -41,7 +39,4 @@ class ReferenceData(APIView):
     def get(self, request):
         query_set = ReferenceUser.objects.all()
         serialized_data = ReferenceSerializer(query_set, many=True)
-        return Response({
-            'success': True,
-            'data': serialized_data.data
-        })
+        return Response({"success": True, "data": serialized_data.data})
