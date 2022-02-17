@@ -47,3 +47,10 @@ class User(AbstractBaseUser):
         return True
 
     objects = MyUserManager()
+
+
+class ResumeModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="resume_uploader", null=True)
+    skill = models.CharField(max_length=30)
+    experience = models.CharField(max_length=50)
+    cv = models.FileField(upload_to="User_CVs")

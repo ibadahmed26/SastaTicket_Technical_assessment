@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, ResumeModel
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -17,3 +17,12 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password('password')
         instance.save()
         return instance
+
+
+class ResumeSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = ResumeModel
+        fields = ("id", "user", "skill", "experience", "cv")
+        # fields = "__all__"
