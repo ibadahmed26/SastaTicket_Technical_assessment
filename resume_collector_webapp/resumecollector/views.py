@@ -1,12 +1,12 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializer import UserSerializer, ResumeSerializer
+from .serializer import UserSerializer, ResumeSerializer, ReferenceSerializer
 from rest_framework import viewsets
-from .models import ResumeModel
+from .models import ResumeModel, ReferenceUser
 from rest_framework.filters import SearchFilter
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 
 class RegisterUser(APIView):
@@ -32,3 +32,16 @@ class ResumeData(viewsets.ModelViewSet):
     def get_queryset(self):
         resumes = ResumeModel.objects.all()
         return resumes
+
+
+class ReferenceData(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        query_set = ReferenceUser.objects.all()
+        serialized_data = ReferenceSerializer(query_set, many=True)
+        return Response({
+            'success': True,
+            'data': serialized_data.data
+        })
