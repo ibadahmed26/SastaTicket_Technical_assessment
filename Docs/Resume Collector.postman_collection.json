@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "3561a46d-8df6-4ceb-835a-4ef04f450abf",
+		"name": "Resume Collector",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ0OTM4NTM1LCJpYXQiOjE2NDQ4NTIxMzUsImp0aSI6IjdiYjEwMmIwYjMwNTRlZWRhYzczNWRhZjIyMjBiNTVjIiwidXNlcl9pZCI6MjJ9.FdyKfFpXCmcXbZRKWxUUVXpKe_zVKDFSUpaLb81EzlA",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "bismakhan",
+							"type": "default"
+						},
+						{
+							"key": "phone_number",
+							"value": "021 5453442",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "superuser",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/signup/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login and get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "abdullah",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "superuser",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY0NjQyNjc3MSwiaWF0IjoxNjQ1MTMwNzcxLCJqdGkiOiI0YTM3ZTE4OGFlZTM0OTkwYWYwNmRhN2VhMmJkMTcxZCIsInVzZXJfaWQiOjZ9.IEPvKpDdwChm7sMdh_MBKEpwyACtiQsx-zTLWZBmOUk",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "superuser",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get resumes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 75da0f3901571e275378d4a40c0f8a02468acd77",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/resumes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"resumes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add resumes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1MjE3MzIyLCJpYXQiOjE2NDUxMzA3NzEsImp0aSI6ImE0YTUxODI4MDFjZTQ3OTc4MzM0NjUwNzQ3OTgxMjJhIiwidXNlcl9pZCI6Nn0.xYtHVnp2rVjiNKarLHmNMMaVJQAsQS8NqGQhlp98X78",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 75da0f3901571e275378d4a40c0f8a02468acd77",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "bismakhan",
+							"type": "default"
+						},
+						{
+							"key": "skill",
+							"value": "angular",
+							"type": "default"
+						},
+						{
+							"key": "experience",
+							"value": "1 year",
+							"type": "default"
+						},
+						{
+							"key": "cv",
+							"type": "file",
+							"src": "/F:/DOCs/CVs/Ibad Ahmed (Python resume).pdf"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/resumes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"resumes",
+						""
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "bismakhan",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update resumes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1MjE3MzIyLCJpYXQiOjE2NDUxMzA3NzEsImp0aSI6ImE0YTUxODI4MDFjZTQ3OTc4MzM0NjUwNzQ3OTgxMjJhIiwidXNlcl9pZCI6Nn0.xYtHVnp2rVjiNKarLHmNMMaVJQAsQS8NqGQhlp98X78",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "bismakhan",
+							"type": "default"
+						},
+						{
+							"key": "skill",
+							"value": "java",
+							"type": "default"
+						},
+						{
+							"key": "experience",
+							"value": "3 year",
+							"type": "default"
+						},
+						{
+							"key": "cv",
+							"type": "file",
+							"src": "/F:/DOCs/CVs/Ibad Ahmed (Python resume).pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/resumes/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"resumes",
+						"2",
+						""
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "bismakhan",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete resumes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1MjE3MzIyLCJpYXQiOjE2NDUxMzA3NzEsImp0aSI6ImE0YTUxODI4MDFjZTQ3OTc4MzM0NjUwNzQ3OTgxMjJhIiwidXNlcl9pZCI6Nn0.xYtHVnp2rVjiNKarLHmNMMaVJQAsQS8NqGQhlp98X78",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "bismakhan",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "skill",
+							"value": "java",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "experience",
+							"value": "1 year",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "cv",
+							"type": "file",
+							"src": "/F:/DOCs/CVs/Ibad Ahmed (Python resume).pdf",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/resumes/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"resumes",
+						"3",
+						""
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "bismakhan",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get User Reference",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ1MjE3MzIyLCJpYXQiOjE2NDUxMzA3NzEsImp0aSI6ImE0YTUxODI4MDFjZTQ3OTc4MzM0NjUwNzQ3OTgxMjJhIiwidXNlcl9pZCI6Nn0.xYtHVnp2rVjiNKarLHmNMMaVJQAsQS8NqGQhlp98X78",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 75da0f3901571e275378d4a40c0f8a02468acd77",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reference/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reference",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
